@@ -8,7 +8,7 @@ int id = 1;
 struct Student {
     std::string first_name = "unkown";
     std::string surname = "unknown";
-    int s_id = id;
+    int s_id = ++id;
 
     void print () const {
         std::cout << s_id << " - " << first_name << " " << surname;
@@ -31,7 +31,6 @@ struct Module {
     void add_record (const Student& name, const int& grade) {
         ModuleRecord pair_student_grade = {name, grade};
         list_of_grades_per_student.push_back(pair_student_grade);
-        id++;
     }
 
     void print (const Module& m) {
