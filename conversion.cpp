@@ -9,12 +9,22 @@ void Metres::operator+= (const Metres toAdd_m) {
     m += toAdd_m.m;
 }
 
+Metres operator"" _m (long double n) {
+    Metres m {double(n)};
+    return m;
+}
+
 void Feet::operator+= (const Feet toAdd_f) {
     f += toAdd_f.f;
 }
 
 void Feet::operator+= (const Metres toAdd_m) {
     f += to_feet(toAdd_m).f;
+}
+
+Feet operator"" _f (long double n) {
+    Feet f {double(n)};
+    return f;
 }
 
 Feet to_feet (const Metres actual_m) {

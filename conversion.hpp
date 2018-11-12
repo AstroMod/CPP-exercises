@@ -1,7 +1,6 @@
 #include <iostream>
 
-typedef struct Feet Feet;
-typedef struct Metres Metres;
+struct Feet;
 
 struct Metres {
     double m = 0;
@@ -10,12 +9,16 @@ struct Metres {
     void operator+= (const Feet toAdd_f);
 };
 
+Metres operator"" _m (long double n);
+
 struct Feet {
     double f = 0;
 
     void operator+= (const Feet toAdd_f);
     void operator+= (const Metres toAdd_m);
 };
+
+Feet operator"" _f (long double n);
 
 Feet to_feet (const Metres actual_m);
 Metres to_metres (const Feet actual_f);
